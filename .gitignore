@@ -1,0 +1,8 @@
+.idea
+_helper/jasmine
+dances.amd/
+dances.dom/
+dances.http/
+dances.javascript/
+dances.pattern/
+dances.plugins/
