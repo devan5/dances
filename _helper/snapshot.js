@@ -151,4 +151,30 @@ fPreLoadImg = function(){
 
 };
 
+fValidArgs = function(conf, requireType, defaultConf){
+	var fType = dances.type
+	;
+
+	for(var prop in requireType){
+		// 可配置参数
+		if(requireType.hasOwnProperty(prop)){
+
+			// 不符合的必须配置参数
+			if(!conf.hasOwnProperty(prop) || requireType[prop].indexOf(fType(conf[prop])) === -1){
+				// 必须配置参数 有推荐值
+				if(defaultConf.hasOwnProperty(prop)){
+					conf[prop] = defaultConf[prop];
+
+					// 必须配置参数 没有推荐值
+				}else{
+					conf[prop] = null;
+				}
+			}
+		}
+	}
+
+	return conf;
+};
+
+// TODO 引入 dances.project
 
