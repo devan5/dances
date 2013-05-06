@@ -82,3 +82,73 @@ fnBindReady = undefined === document.createElement("script").onload ?
 		}
 	}
 ;
+
+/*_______
+_______*/
+// 预加一系列载图片 + 回调
+// syntax: fPreLoadImg(src1[, src2], [callback])
+fPreLoadImg = function(){
+	var
+		args = Array.prototype.slice.call(arguments, 0),
+		callback = args.pop(),
+
+		item,
+		imgEl,
+
+		firstImgEl,
+		firstSrc,
+
+		nextImgEl,
+		nextSrc
+	;
+
+	if("function" !== typeof callback){
+		args.push(callback);
+		callback = null;
+	}
+
+	for(var i = 0, len = args.length; i < len; i++){
+		item = args[i];
+
+		if("string" === typeof item){
+
+			if(!firstImgEl){
+				firstImgEl = imgEl = document.createElement("img");
+				imgEl.style.display = "none";
+				firstSrc = item;
+			}
+
+			nextSrc = args[i + 1];
+
+			if("string" === typeof nextSrc){
+				nextImgEl = document.createElement("img");
+				nextImgEl.style.display = "none";
+
+				imgEl.onload = (function(El, src){
+					return function(){
+						El.src = src;
+					}
+				})(nextImgEl, nextSrc);
+
+			}else{
+
+				imgEl.onload = function(){
+					callback && callback();
+
+					(!dances.uAgent.msie || dances.uAgent.msie > 6) && document.body.removeChild(firstImgEl);
+				};
+
+				break;
+			}
+
+			imgEl = nextImgEl;
+		}
+
+	}
+
+	firstImgEl.src = firstSrc;
+	document.body.appendChild(firstImgEl);
+
+};
+
+

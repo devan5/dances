@@ -1,8 +1,8 @@
 # dances
 
-## ÏìÓ¦ AMD Ä£¿éµÄjavascript¿â
+## å“åº” AMD æ¨¡å—çš„javascriptåº“
 
-### ºËĞÄ¹¹¼Ü
+### æ ¸å¿ƒæ„æ¶
 
 + amd
 + dom
@@ -12,19 +12,19 @@
 + plguins
 
 ### amd
-Òì²½Ä£¿é¼ÓÔØÓë¶¨Òå. .amd ÊÇ dances ºËĞÄ. 
+å¼‚æ­¥æ¨¡å—åŠ è½½ä¸å®šä¹‰. .amd æ˜¯ dances æ ¸å¿ƒ. 
 
 + dances.add
 + dances.define
 + dances.require
 
 ### dom(bom)
-ºÍä¯ÀÀÆ÷Ïà¹ØÊµÏÖ.
+å’Œæµè§ˆå™¨ç›¸å…³å®ç°.
 
-// Ñ¡ÔñÆ÷
+// é€‰æ‹©å™¨
 + dances.hunt
 
-// node Î»ÖÃ²Ù×÷
+// node ä½ç½®æ“ä½œ
 + dances.append .etc
 
 // node UI
@@ -33,31 +33,35 @@
 + dances.weight
 + dances.offset
 
-// ¶ÏÑÔ
+// æ–­è¨€
++ dances.uAgent
 + dances.contains
 
-// ÊÂ¼ş
+// äº‹ä»¶
 + dances.evt
 + dances.eAdd
 + dances.eErase
 + dances.eOn
 + dances.eOff
 
+// å…¶ä»–
++ dances.addCss
+
 ### http
-ÓëÊı¾İ·¢ËÍÏà¹ØµÄÊµÏÖ.
+ä¸æ•°æ®å‘é€ç›¸å…³çš„å®ç°.
 
 + dances.cookie
 
 + dances.storage
 
-// ÒıÈë deferred ×ñÑ­ CommonJs Promises/A
+// å¼•å…¥ deferred éµå¾ª CommonJs Promises/A
 + dances.ajax
 + dances.get
 + dances.post
 + dances.jsonp
 
 ### javascript
-×¨×¢ÓÚjavascript ÓïÑÔ±¾Éí
+ä¸“æ³¨äºjavascript è¯­è¨€æœ¬èº«
 
 + dances.json
 
@@ -75,7 +79,7 @@
 + dances.type
 
 ### pattern
-javascript Ò»¶¨¸ß¶ÈµÄÄ£Ê½¼¯ºÏ·â×°.
+javascript ä¸€å®šé«˜åº¦çš„æ¨¡å¼é›†åˆå°è£….
 
 + dances.class
 
