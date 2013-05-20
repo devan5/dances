@@ -83,8 +83,6 @@ fnBindReady = undefined === document.createElement("script").onload ?
 	}
 ;
 
-/*_______
-_______*/
 // 预加一系列载图片 + 回调
 // syntax: fPreLoadImg(src1[, src2], [callback])
 fPreLoadImg = function(){
@@ -176,5 +174,8 @@ fValidArgs = function(conf, requireType, defaultConf){
 	return conf;
 };
 
-// TODO 引入 dances.project
+// 重复输出
+function dynWrite(str, num){
+	document.write(new Array((isNaN(parseInt(num, 10)) ? 0 : num) + 1).join(str));
+}
 

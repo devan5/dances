@@ -24,6 +24,9 @@
 // 选择器
 + dances.hunt
 
+// 选择器
++ dances.templ
+
 // node 位置操作
 + dances.append .etc
 
@@ -83,8 +86,10 @@ javascript 一定高度的模式集合封装.
 
 + dances.class
 
++ dances.subscribe
+
++ dances.promise
+
 + dances.queue
 
 + dances.effect
-
-+ dances.subscribe
