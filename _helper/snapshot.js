@@ -24,7 +24,7 @@ create = Object.create || (function(){
 })();
 
 // 反柯里化
-uc =function(fn){
+uc = function(fn){
 	return function(){
 		return Function.prototype.call.apply(fn, arguments);
 	}
@@ -149,6 +149,8 @@ fPreLoadImg = function(){
 
 };
 
+// 验证参数
+// TODO 撰写一个demo 便于理解
 fValidArgs = function(conf, requireType, defaultConf){
 	var fType = dances.type
 	;
@@ -158,7 +160,7 @@ fValidArgs = function(conf, requireType, defaultConf){
 		if(requireType.hasOwnProperty(prop)){
 
 			// 不符合的必须配置参数
-			if(!conf.hasOwnProperty(prop) || requireType[prop].indexOf(fType(conf[prop])) === -1){
+			if(!conf.hasOwnProperty(prop) || (requireType[prop] + ",").indexOf(fType(conf[prop])) === -1){
 				// 必须配置参数 有推荐值
 				if(defaultConf.hasOwnProperty(prop)){
 					conf[prop] = defaultConf[prop];
@@ -179,3 +181,28 @@ function dynWrite(str, num){
 	document.write(new Array((isNaN(parseInt(num, 10)) ? 0 : num) + 1).join(str));
 }
 
+// 简单跨越 getStyle
+getStyle = document.body.currentStyle ?
+	function(elem, name){
+		var val = elem.currentStyle[name];
+
+		if(name === 'height' && val.search(/px/i) !== 1){
+			var rect = elem.getBoundingClientRect();
+			return rect.bottom - rect.top -
+				   parseFloat(getStyle('paddingTop')) -
+				   parseFloat(getStyle('paddingBottom')) + 'px';
+		}
+		return val;
+	} :
+	function(elem, name){
+		return getComputedStyle(elem, null)[name];
+	}
+;
+
+// 简单跨越 事件监听
+addEvent = function(elem, type, callback){
+	elem.addEventListener ?
+		elem.addEventListener(type, callback, false) :
+		elem.attachEvent('on' + type, callback)
+	;
+};

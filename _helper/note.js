@@ -3,7 +3,7 @@ with dances
 
 	called: {name}
 
-	version: {numberSign}
+	version: {version}
 
 	firstDate: 2013.07.07
 
