@@ -91,6 +91,8 @@ if ("function" !== typeof window.dances &&  "object" !== typeof window.dances){
 			window.$$log || (window.$$log = $$log);
 			window.__log || (window.__log = $$log);
 
+		}else{
+			window.$$log = function(){return Array.prototype.slice.call(arguments, 0).join(", ")};
 		}
 
 		return $log;
