@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>jasmine_Template</title>
+
+	<!--jasmine.css jasmine.js jasmine-html.js 必须引用-->
+	<!-- 注意路径 -->
+	<link rel="stylesheet" type="text/css" href="../jasmine/lib/1.3.1/jasmine.css" media="all">
+	<script type="text/javascript" src="../jasmine/lib/1.3.1/jasmine.js"></script>
+	<script type="text/javascript" src="../jasmine/lib/1.3.1/jasmine-html.js"></script>
+
+	<!-- 执行结果 -->
+	<script type="text/javascript">
+		(function(){
+			var jasmineEnv = jasmine.getEnv();
+			jasmineEnv.updateInterval = 1000;
+
+			var htmlReporter = new jasmine.HtmlReporter();
+//			var htmlReporter = new jasmine.TrivialReporter();
+
+			jasmineEnv.addReporter(htmlReporter);
+
+			jasmineEnv.specFilter = function(spec){
+				return htmlReporter.specFilter(spec);
+			};
+
+			var currentWindowOnload = window.onload;
+
+			window.onload = function(){
+				if(currentWindowOnload){
+					currentWindowOnload();
+				}
+				execJasmine();
+			};
+
+			function execJasmine(){
+				jasmineEnv.execute();
+			}
+
+		})();
+	</script>
+
+	<!-- 被测试代码 -->
+	<script type="text/javascript" src="Test.js"></script>
+
+	<!-- spec代码 -->
+	<script type="text/javascript">
+		describe("Test",function(){
+			it("TestUnit",function(){
+				expect("ok").toEqual("ok");
+			});
+		});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

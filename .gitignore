@@ -1,9 +1,8 @@
 .idea
-_helper/jasmine
 dances.amd/
 dances.dom/
 dances.http/
 dances.javascript/
 dances.pattern/
 dances.plugins/
-/lib/jquery-1.7.2.min.js
+dances.idea/
