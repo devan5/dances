@@ -1,57 +1,50 @@
 ﻿<!DOCTYPE HTML>
 <html lang="en-US">
 <head>
-	<meta charset="UTF-8">
-	<title>jasmine_Template</title>
+    <meta charset="UTF-8">
+    <title>jasmine Spec Runner</title>
 
-	<!--jasmine.css jasmine.js jasmine-html.js 必须引用-->
-	<!-- 注意路径 -->
-	<link rel="stylesheet" type="text/css" href="../jasmine/lib/1.3.1/jasmine.css" media="all">
-	<script type="text/javascript" src="../jasmine/lib/1.3.1/jasmine.js"></script>
-	<script type="text/javascript" src="../jasmine/lib/1.3.1/jasmine-html.js"></script>
+    <!--jasmine lib-->
+    <link rel="stylesheet" type="text/css" href="../jasmine/lib/jasmine-1.3.1/jasmine.css" media="all">
+    <script type="text/javascript" src="../jasmine/lib/jasmine-1.3.1/jasmine.js"></script>
+    <script type="text/javascript" src="../jasmine/lib/jasmine-1.3.1/jasmine-html.js"></script>
 
-	<!-- 执行结果 -->
-	<script type="text/javascript">
-		(function(){
-			var jasmineEnv = jasmine.getEnv();
-			jasmineEnv.updateInterval = 1000;
+    <!-- include source files here... -->
+    <script type="text/javascript" src="test/testJasmine.js"></script>
 
-			var htmlReporter = new jasmine.HtmlReporter();
+    <!-- include spec files here... -->
+    <script type="text/javascript" src="spec/specDefault.js"></script>
+
+    <!-- 执行结果 -->
+    <script type="text/javascript">
+        (function(){
+            var jasmineEnv = jasmine.getEnv();
+            jasmineEnv.updateInterval = 1000;
+
+            var htmlReporter = new jasmine.HtmlReporter();
 //			var htmlReporter = new jasmine.TrivialReporter();
 
-			jasmineEnv.addReporter(htmlReporter);
+            jasmineEnv.addReporter(htmlReporter);
 
-			jasmineEnv.specFilter = function(spec){
-				return htmlReporter.specFilter(spec);
-			};
+            jasmineEnv.specFilter = function(spec){
+                return htmlReporter.specFilter(spec);
+            };
 
-			var currentWindowOnload = window.onload;
+            var currentWindowOnload = window.onload;
 
-			window.onload = function(){
-				if(currentWindowOnload){
-					currentWindowOnload();
-				}
-				execJasmine();
-			};
+            window.onload = function(){
+                if(currentWindowOnload){
+                    currentWindowOnload();
+                }
+                execJasmine();
+            };
 
-			function execJasmine(){
-				jasmineEnv.execute();
-			}
+            function execJasmine(){
+                jasmineEnv.execute();
+            }
 
-		})();
-	</script>
-
-	<!-- 被测试代码 -->
-	<script type="text/javascript" src="Test.js"></script>
-
-	<!-- spec代码 -->
-	<script type="text/javascript">
-		describe("Test",function(){
-			it("TestUnit",function(){
-				expect("ok").toEqual("ok");
-			});
-		});
-	</script>
+        })();
+    </script>
 
 </head>
 <body>
