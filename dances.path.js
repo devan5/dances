@@ -5,7 +5,8 @@
     jQ102      : "lib/jquery-1.10.2.min",
 
     // dancesJs
-    dJs        : "dances.javascript/dances.javascript",
+    dJs        : "dances.javascript/dist/dances.javascript",
+
     // dancesNative
     dNative    : "dances.javascript/dances.nativeExtend",
 
