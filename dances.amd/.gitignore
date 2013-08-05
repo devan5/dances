@@ -1,2 +1,4 @@
 .idea
+dist
 release/*.min.js
+node_modules
